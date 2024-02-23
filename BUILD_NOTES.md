@@ -28,6 +28,5 @@ But `$ ./build.sh libraft --cache-tool=ccache` seems to work:
 Consider `raft/build.sh`. Either the "tests" target option, or `--compile-lib` or `--compile-static-lib` options would result in `COMPILE_LIBRARY=ON`. `RAFT_COMPILE_LIBRARY` variable in CMake will then get set by value of `COMPILE_LIBRARY` in the line for `cmake` around line 425.
 
 Continue to trace that variable to `raft/cpp/CMakeLists.txt` and there it will compile, with the command `add_library(..)` and the `.cu` CUDA source files. It's by `src/raft_runtime/cluster/kmeans_fit_double.cu` that it fails on compiling on a 980 Ti for its compute capability of 5.2.
-`
 
 Instead, by commenting out the line for `src/raft_runtime/cluster/kmeans_fit_double.cu` in `raft/cpp/CMakeLists.txt` for `add_library(..)` command, we were able to build. Indeed, the build products are in `raft/cpp/build/install/lib` and installed in `$ORIGIN`. `$ORIGIN` for the "RPATH" (runtime library path) appears to be `raft/cpp/build`.

@@ -349,11 +349,15 @@ const std::vector<KmeansInputs<double>> inputsd2 = {{1000, 32, 5, 0.0001, true},
 typedef KmeansTest<float> KmeansTestF;
 TEST_P(KmeansTestF, Result) { ASSERT_TRUE(score == 1.0); }
 
+/*
 typedef KmeansTest<double> KmeansTestD;
 TEST_P(KmeansTestD, Result) { ASSERT_TRUE(score == 1.0); }
+*/
 
 INSTANTIATE_TEST_CASE_P(KmeansTests, KmeansTestF, ::testing::ValuesIn(inputsf2));
 
+/*
 INSTANTIATE_TEST_CASE_P(KmeansTests, KmeansTestD, ::testing::ValuesIn(inputsd2));
+*/
 
 }  // namespace raft

@@ -404,7 +404,10 @@ if(RAFT_COMPILE_LIBRARY)
     src/raft_runtime/cluster/cluster_cost.cuh
     src/raft_runtime/cluster/cluster_cost_double.cu
     src/raft_runtime/cluster/cluster_cost_float.cu
-    src/raft_runtime/cluster/kmeans_fit_double.cu
+    # This requires compute capability 6.X or above. But consider for example a
+    # GeForce GTX 980Ti with compute capability 5.2. Let's build for these
+    # cards.
+    #src/raft_runtime/cluster/kmeans_fit_double.cu
     src/raft_runtime/cluster/kmeans_fit_float.cu
     src/raft_runtime/cluster/kmeans_init_plus_plus_double.cu
     src/raft_runtime/cluster/kmeans_init_plus_plus_float.cu

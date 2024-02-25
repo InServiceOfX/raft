@@ -175,6 +175,15 @@ if(BUILD_TESTS)
     EXPLICIT_INSTANTIATE_ONLY
   )
 
+  ConfigureTest(
+    NAME
+    MORE_DISTANCE_TESTS
+    PATH
+    test/more_distance/more_distance_adjacent.cu
+    LIB
+    EXPLICIT_INSTANTIATE_ONLY
+  )
+
   list(
     APPEND
     EXT_HEADER_TEST_SOURCES

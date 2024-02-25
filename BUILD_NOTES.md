@@ -37,3 +37,23 @@ Consider `raft/build.sh`. Either the "tests" target option, or `--compile-lib` o
 Continue to trace that variable to `raft/cpp/CMakeLists.txt` and there it will compile, with the command `add_library(..)` and the `.cu` CUDA source files. It's by `src/raft_runtime/cluster/kmeans_fit_double.cu` that it fails on compiling on a 980 Ti for its compute capability of 5.2.
 
 Instead, by commenting out the line for `src/raft_runtime/cluster/kmeans_fit_double.cu` in `raft/cpp/CMakeLists.txt` for `add_library(..)` command, we were able to build. Indeed, the build products are in `raft/cpp/build/install/lib` and installed in `$ORIGIN`. `$ORIGIN` for the "RPATH" (runtime library path) appears to be `raft/cpp/build`.
+
+## Creating and starting a virtual environment for Python 3
+
+Create a directory for a virtual environment:
+
+```
+/InServiceOfX$ python3 -m venv ./venv/
+```
+
+Activate it:
+```
+/InServiceOfX$ source ./venv/bin/activate
+```
+You should see the prompt have a prefix `(venv)`.
+
+Deactivate it:
+```
+deactivate
+```
+
